@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--  Tailwind CSS for styling -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <!--  Google Fonts: Orbitron (used for futuristic styling) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+
+    <!--  External CSS file -->
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        /*  Hides the scrollbar for a cleaner UI */
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--  Hero Section: Main content with a video background -->
+    <div class="relative Hero-Screen-Main w-full h-screen overflow-hidden">
+
+        <!--  Foreground Image (Luxury Car Window Effect) -->
+        <div class="w-full h-full absolute z-20 Hero-screen">
+            <img src="./Window.png" class="object-cover bg-cover w-screen h-screen" alt="">
+        </div>
+
+        <!--  Background Video -->
+        <div class="w-full h-full absolute z-10">
+            <video class="object-cover w-full h-full" src="./Video.mp4" autoplay loop muted></video>
+        </div>
+
+        <!--  Text Animation Section (Luxury, Performance, Innovation) -->
+        <div class="z-30 absolute bottom-0 w-full h-full flex justify-center overflow-x-hidden items-center text-content">
+            <div>
+                <!--  Luxury Text Animation -->
+                <div class="Text-Animation-Top Text-Animation-Left text-white md:me-96 py-16 md:py-10">
+                    <span class='orbitron-Font text-6xl md:text-9xl md:m-20 p-4 ms-0'>Luxury</span>
+                </div>
+                <!--  Performance & Text Animation -->
+                <div class="Text-Animation-Top Text-Animation-Right text-white text-end py-16 md:py-10">
+                    <span class='orbitron-Font text-xl md:text-6xl md:m-20 p-4 me-0'>Performance &</span>
+                </div>
+                <!--  Innovation Text Animation -->
+                <div class="Text-Animation-Top Text-Animation-Left text-white md:me-96 py-16 md:py-10">
+                    <span class='orbitron-Font text-xl md:text-8xl md:m-20 p-4 ms-0'>Innovation</span>
+                </div>
+                <!--  Final Tagline Animation -->
+                <div class="Text-Animation-Top Text-Animation-Right text-white text-end py-16 md:py-10">
+                    <span class='orbitron-Font text-4xl md:text-5xl md:m-20 p-4 me-0'>BMW Drives The Future.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  Scrolling Animation Section -->
+    <div class="Home-Screen-1 h-screen w-full bg-black flex justify-center items-center text-center">
+        <div class="w-full h-full grid grid-rows-3">
+
+            <!--  First Row: Every Turn -->
+            <div class="overflow-hidden grid grid-cols-3 grid-rows-1">
+                <div>
+                    <img src="./Img1.png" class="Up-Img w-full h-full object-cover" alt="">
+                </div>
+                <div class="flex justify-center items-center">
+                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Every</h2>
+                </div>
+                <div class="flex justify-center items-center">
+                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Turn</h2>
+                </div>
+            </div>
+
+            <!--  Second Row: Every Mile A -->
+            <div class="overflow-hidden grid grid-cols-3 grid-rows-1">
+                <div class="flex justify-center items-center">
+                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Every</h2>
+                </div>
+                <div>
+                    <img src="./Img2.png" class="Up-Img w-full h-full object-cover" alt="">
+                </div>
+                <div class="flex justify-center items-center">
+                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Mile A</h2>
+                </div>
+            </div>
+
+            <!--  Third Row: Masterpiece In Motion -->
+            <div class="overflow-hidden grid grid-cols-3 grid-rows-1">
+                <div class="flex justify-center items-center">
+                    <h2 class="Text-Animation text-white text-xl md:text-7xl">Masterpiece</h2>
+                </div>
+                <div class="flex justify-center items-center">
+                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">In Motion.</h2>
+                </div>
+                <div>
+                    <img src="./Img3.png" class="Up-Img w-full h-full object-cover" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  GSAP Library (for animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--  GSAP ScrollTrigger (for scroll-based animations) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--  GSAP ScrollToPlugin (for smooth scrolling) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
+        integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--  External JavaScript file (for animations and interactions) -->
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
