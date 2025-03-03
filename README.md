@@ -9,7 +9,9 @@ A brief description of what this project does and who it's for
 
 #### Question 1
 
-Answer 1
+How TO create this repo 
+
+some 1 
 
 #### Question 2
 
