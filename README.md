@@ -118,17 +118,6 @@ What did you learn while building this project? What challenges did you face and
 
 What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
 
-
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://link-to-project
-```
-
-Go to the project directory
-
 ```bash
   cd my-project
 ```
