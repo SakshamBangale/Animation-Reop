@@ -97,25 +97,7 @@ Here are some related projects
 
 ## Feedback
 
-If you have any feedback, please reach out to us at fake@fake.com
-
-
-## Installation
-
-Install my-project with npm
-
-```bash
-  npm install my-project
-  cd my-project
-```
-    
-## Lessons Learned
-
-What did you learn while building this project? What challenges did you face and how did you overcome them?
-
-
-## Optimizations
-
+If
 What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
 
 ```bash
