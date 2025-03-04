@@ -2,31 +2,6 @@
 # Animation Repo - 
 
 
-A brief description of what this project does and who it's for
-
-
-## FAQ
-
-#### Question 1
-
-How TO create this repo 
-
-some 1 
-
-#### Question 2
-
-Answer 2
-
-
-## 🚀 About Me
-I'm a full stack developer...
-
-
-## 🛠 Skills
-Javascript, HTML, CSS , Tailwind Css
-
-
-## Roadmap
 
 - Additional browser support
 
