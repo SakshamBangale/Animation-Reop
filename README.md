@@ -1,12 +1,6 @@
 
 # Animation Repo - 
 
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
-
 ## Other Common Github Profile Sections
 👩‍💻 I'm currently working on...
 
