@@ -2,45 +2,6 @@
 # Animation Repo - 
 
 
-
-- Additional browser support
-
-- Add more integrations
-
-
-## Tech Stack
-
-**Client:** React, Redux, TailwindCSS
-
-**Server:** Node, Express
-
-
-## Usage/Examples
-
-```javascript
-import Component from 'my-project'
-
-function App() {
-  return <Component />
-}
-```
-
-
-## Used By
-
-This project is used by the following companies:
-
-- Company 1
-- Company 2
-
-
-## Related
-
-Here are some related projects
-
-[Awesome README](https://github.com/matiassingers/awesome-readme)
-
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
