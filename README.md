@@ -10,11 +10,3 @@
 
 🤔 I'm looking for he
 
-```bash
-  npm install
-```
-
-- [@octokatherine](https://www.github.com/octokatherine)
-
-
-
