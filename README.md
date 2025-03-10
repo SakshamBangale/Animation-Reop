@@ -14,20 +14,6 @@
   npm install
 ```
 
-Start the server
-
-```bash
-  npm run start
-```
-
-
-## Demo
-
-Insert gif or link to demo
-
-
-## Authors
-
 - [@octokatherine](https://www.github.com/octokatherine)
 
 
