@@ -1,6 +1,8 @@
 // Register GSAP ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
+
+
 // Text Animation (Scaling Up from Top)
 gsap.fromTo(
     '.Text-Animation-Top',
