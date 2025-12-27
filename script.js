@@ -14,6 +14,7 @@ gsap.fromTo(
     {
         scaleY: 1, // Expands to full height
         opacity: 1, // Fades in
+        
         duration: 1, // Animation duration
         stagger: 0.8, // Delay between each element
         ease: 'power1.out' // Easing function
@@ -123,5 +124,6 @@ gsap.fromTo(
         }
     }
 );
+
 
 
