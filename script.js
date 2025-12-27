@@ -3,6 +3,8 @@ gsap.registerPlugin(ScrollTrigger);
 // Text Animation (Scaling Up from Top)
 
 gsap.fromTo(
+
+    
     '.Text-Animation-Top',
     {
         opacity: 0,
@@ -120,3 +122,4 @@ gsap.fromTo(
         }
     }
 );
+
