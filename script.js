@@ -8,6 +8,7 @@ gsap.fromTo(
     '.Text-Animation-Top',
     {
         opacity: 0,
+        
         scaleY: 0, // Starts from invisible and squashed
     },
     {
@@ -122,4 +123,5 @@ gsap.fromTo(
         }
     }
 );
+
 
