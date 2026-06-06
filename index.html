@@ -1,140 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Animation Website</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
 
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animation - Site </title>
-    <!--  Tailwind CSS for styling -->
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+body{
+    overflow:hidden;
+    height:100vh;
+    background:linear-gradient(to bottom,#6ec6ff,#dff6ff);
+}
 
-    <!--  Google Fonts: Orbitron (used for futuristic styling) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+/* Navbar */
+nav{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    padding:15px 40px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:10;
+}
 
-    <!--  External CSS file -->
-    <link rel="stylesheet" href="./style.css">
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#fff;
+}
 
-    <style>
-        /*  Hides the scrollbar for a cleaner UI */
-        ::-webkit-scrollbar {
-            width: 0;
-        }
-    </style>
+nav ul{
+    display:flex;
+    gap:30px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* Hero */
+.hero{
+    position:absolute;
+    top:50%;
+    left:10%;
+    transform:translateY(-50%);
+    z-index:5;
+    color:white;
+}
+
+.hero h1{
+    font-size:70px;
+    margin-bottom:20px;
+    text-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+.hero p{
+    max-width:500px;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    margin-right:15px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.primary{
+    background:#ff3c41;
+    color:white;
+}
+
+.secondary{
+    background:white;
+    color:#333;
+}
+
+/* Mountains */
+.mountain{
+    position:absolute;
+    bottom:180px;
+    width:100%;
+    height:300px;
+    background:
+    polygon(0% 100%,20% 30%,40% 100%,60% 20%,80% 100%,100% 40%,100% 100%);
+}
+
+.mountains{
+    position:absolute;
+    bottom:180px;
+    width:100%;
+    height:300px;
+    background:#5c7c89;
+    clip-path:polygon(
+    0 100%,10% 50%,20% 100%,
+    35% 30%,50% 100%,
+    65% 20%,80% 100%,
+    100% 40%,100% 100%);
+}
+
+/* Road */
+.road{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:180px;
+    background:#333;
+}
+
+.road::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    width:300%;
+    height:8px;
+    background:repeating-linear-gradient(
+        to right,
+        white 0,
+        white 60px,
+        transparent 60px,
+        transparent 120px
+    );
+    animation:roadMove 2s linear infinite;
+}
+
+@keyframes roadMove{
+    from{transform:translateX(0);}
+    to{transform:translateX(-120px);}
+}
+
+/* Car */
+.car-container{
+    position:absolute;
+    bottom:90px;
+    left:50%;
+    transform:translateX(-50%);
+    animation:carBounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes carBounce{
+    from{transform:translateX(-50%) translateY(0);}
+    to{transform:translateX(-50%) translateY(-6px);}
+}
+
+.car{
+    position:relative;
+    width:420px;
+    height:120px;
+}
+
+/* Car Body */
+.body{
+    position:absolute;
+    width:100%;
+    height:80px;
+    bottom:20px;
+    background:#ff3c41;
+    border-radius:30px 60px 20px 20px;
+    box-shadow:0 15px 30px rgba(0,0,0,.3);
+}
+
+.top{
+    position:absolute;
+    width:180px;
+    height:60px;
+    background:#ff3c41;
+    left:90px;
+    top:0;
+    border-radius:30px 30px 0 0;
+}
+
+.window{
+    position:absolute;
+    width:70px;
+    height:40px;
+    background:#9ee8ff;
+    top:10px;
+    border-radius:10px;
+}
+
+.w1{left:20px;}
+.w2{right:20px;}
+
+.headlight{
+    position:absolute;
+    right:-5px;
+    top:35px;
+    width:20px;
+    height:12px;
+    background:yellow;
+    border-radius:10px;
+    box-shadow:0 0 20px yellow;
+}
+
+/* Wheels */
+.wheel{
+    position:absolute;
+    width:70px;
+    height:70px;
+    background:#222;
+    border:8px solid #666;
+    border-radius:50%;
+    bottom:-10px;
+    animation:spin .5s linear infinite;
+}
+
+.wheel::after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:#aaa;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.front{
+    right:50px;
+}
+
+.back{
+    left:50px;
+}
+
+@keyframes spin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* Floating particles */
+.particle{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    opacity:.8;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100vh);
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+
+.hero{
+    left:5%;
+}
+
+.hero h1{
+    font-size:42px;
+}
+
+.car{
+    transform:scale(.7);
+}
+
+nav ul{
+    display:none;
+}
+}
+</style>
 </head>
-
 <body>
 
-    <!--  Hero Section: Main content with a video background -->
-    <div class="relative Hero-Screen-Main w-full h-screen overflow-hidden">
+<nav>
+    <div class="logo">AUTO-X</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Models</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
 
-        <!--  Foreground Image (Luxury Car Window Effect) -->
-        <div class="w-full h-full absolute z-20 Hero-screen">
-            <img src="./Window.png" class="object-cover bg-cover w-screen h-screen" alt="">
+<div class="hero">
+    <h1>Future Driving</h1>
+    <p>
+        Experience speed, luxury and innovation with our
+        next-generation sports cars.
+    </p>
+
+    <button class="btn primary">Explore Cars</button>
+    <button class="btn secondary">Watch Video</button>
+</div>
+
+<div class="mountains"></div>
+
+<div class="car-container">
+    <div class="car">
+
+        <div class="top">
+            <div class="window w1"></div>
+            <div class="window w2"></div>
         </div>
 
-        <!--  Background Video -->
-        <div class="w-full h-full absolute z-10">
-            <video class="object-cover w-full h-full" src="./Video.mp4" autoplay loop muted></video>
+        <div class="body">
+            <div class="headlight"></div>
         </div>
 
-        <!--  Text Animation Section (Luxury, Performance, Innovation) -->
-        <div class="z-30 absolute bottom-0 w-full h-full flex justify-center overflow-x-hidden items-center text-content">
-            <div>
-                <!--  Luxury Text Animation -->
-                <div class="Text-Animation-Top Text-Animation-Left text-white md:me-96 py-16 md:py-10">
-                    <span class='orbitron-Font text-6xl md:text-9xl md:m-20 p-4 ms-0'>Luxury</span>
-                </div>
-                <!--  Performance & Text Animation -->
-                <div class="Text-Animation-Top Text-Animation-Right text-white text-end py-16 md:py-10">
-                    <span class='orbitron-Font text-xl md:text-6xl md:m-20 p-4 me-0'>Performance &</span>
-                </div>
-                <!--  Innovation Text Animation -->
-                <div class="Text-Animation-Top Text-Animation-Left text-white md:me-96 py-16 md:py-10">
-                    <span class='orbitron-Font text-xl md:text-8xl md:m-20 p-4 ms-0'>Innovation</span>
-                </div>
-                <!--  Final Tagline Animation -->
-                <div class="Text-Animation-Top Text-Animation-Right text-white text-end py-16 md:py-10">
-                    <span class='orbitron-Font text-4xl md:text-5xl md:m-20 p-4 me-0'>BMW Drives The Future.</span>
-                </div>
-            </div>
-        </div>
+        <div class="wheel back"></div>
+        <div class="wheel front"></div>
+
     </div>
+</div>
 
-    <!--  Scrolling Animation Section -->
-    <div class="Home-Screen-1 h-screen w-full bg-black flex justify-center items-center text-center">
-        <div class="w-full h-full grid grid-rows-3">
+<div class="road"></div>
 
-            <!--  First Row: Every Turn -->
-            <div class="overflow-hidden grid grid-cols-3 grid-rows-1">
-                <div>
-                    <img src="./Img1.png" class="Up-Img w-full h-full object-cover" alt="">
-                </div>
-                <div class="flex justify-center items-center">
-                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Every</h2>
-                </div>
-                <div class="flex justify-center items-center">
-                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Turn</h2>
-                </div>
-            </div>
+<script>
+// Floating particles
+for(let i=0;i<40;i++){
 
-            <!--  Second Row: Every Mile A -->
-            <div class="overflow-hidden grid grid-cols-3 grid-rows-1">
-                <div class="flex justify-center items-center">
-                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Every</h2>
-                </div>
-                <div>
-                    <img src="./Img2.png" class="Up-Img w-full h-full object-cover" alt="">
-                </div>
-                <div class="flex justify-center items-center">
-                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">Mile A</h2>
-                </div>
-            </div>
+    const p=document.createElement("div");
+    p.classList.add("particle");
 
-            <!--  Third Row: Masterpiece In Motion -->
-            <div class="overflow-hidden grid grid-cols-3 grid-rows-1">
-                <div class="flex justify-center items-center">
-                    <h2 class="Text-Animation text-white text-xl md:text-7xl">Masterpiece</h2>
-                </div>
-                <div class="flex justify-center items-center">
-                    <h2 class="Text-Animation text-white text-2xl md:text-7xl">In Motion.</h2>
-                </div>
-                <div>
-                    <img src="./Img3.png" class="Up-Img w-full h-full object-cover" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
+    const size=Math.random()*6+2;
 
-    <!--  GSAP Library (for animations) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    p.style.width=size+"px";
+    p.style.height=size+"px";
+    p.style.left=Math.random()*100+"vw";
+    p.style.bottom="-20px";
 
-    <!--  GSAP ScrollTrigger (for scroll-based animations) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    p.style.animationDuration=
+        (Math.random()*8+5)+"s";
 
-    <!--  GSAP ScrollToPlugin (for smooth scrolling) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"
-        integrity="sha512-1PKqXBz2ju2JcAerHKL0ldg0PT/1vr3LghYAtc59+9xy8e19QEtaNUyt1gprouyWnpOPqNJjL4gXMRMEpHYyLQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    p.style.animationDelay=
+        Math.random()*5+"s";
 
-    <!--  External JavaScript file (for animations and interactions) -->
-    <script src="./script.js"></script>
+    document.body.appendChild(p);
+}
+</script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
