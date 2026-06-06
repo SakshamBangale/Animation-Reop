@@ -3,362 +3,376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car Animation Website</title>
+
+<title>GSAP Car Website</title>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
 }
 
 body{
-    overflow:hidden;
-    height:100vh;
-    background:linear-gradient(to bottom,#6ec6ff,#dff6ff);
+height:100vh;
+overflow:hidden;
+background:
+radial-gradient(circle at top,
+#1c2740,
+#050816);
+color:white;
 }
 
 /* Navbar */
+
 nav{
-    position:absolute;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    width:90%;
-    padding:15px 40px;
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    z-index:10;
+position:fixed;
+top:0;
+width:100%;
+padding:25px 80px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:100;
 }
 
 .logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#fff;
+font-size:2rem;
+font-weight:700;
+letter-spacing:4px;
 }
 
 nav ul{
-    display:flex;
-    gap:30px;
-    list-style:none;
+display:flex;
+gap:40px;
+list-style:none;
 }
 
-nav ul li a{
-    color:white;
-    text-decoration:none;
-    font-weight:600;
+nav a{
+color:white;
+text-decoration:none;
 }
 
 /* Hero */
+
 .hero{
-    position:absolute;
-    top:50%;
-    left:10%;
-    transform:translateY(-50%);
-    z-index:5;
-    color:white;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
 }
 
-.hero h1{
-    font-size:70px;
-    margin-bottom:20px;
-    text-shadow:0 5px 20px rgba(0,0,0,0.3);
+.left{
+max-width:600px;
 }
 
-.hero p{
-    max-width:500px;
-    font-size:18px;
-    line-height:1.6;
-    margin-bottom:30px;
+.subtitle{
+color:#00e5ff;
+font-size:18px;
+letter-spacing:4px;
+margin-bottom:20px;
+}
+
+h1{
+font-size:90px;
+line-height:1;
+margin-bottom:20px;
+}
+
+h1 span{
+display:block;
+color:#00e5ff;
+}
+
+p{
+font-size:18px;
+opacity:.8;
+line-height:1.8;
+margin-bottom:30px;
+}
+
+.buttons{
+display:flex;
+gap:20px;
 }
 
 .btn{
-    padding:15px 35px;
-    border:none;
-    border-radius:50px;
-    margin-right:15px;
-    cursor:pointer;
-    font-size:16px;
-    font-weight:bold;
+padding:16px 35px;
+border:none;
+cursor:pointer;
+border-radius:50px;
+font-size:16px;
+font-weight:600;
 }
 
 .primary{
-    background:#ff3c41;
-    color:white;
+background:#00e5ff;
 }
 
 .secondary{
-    background:white;
-    color:#333;
-}
-
-/* Mountains */
-.mountain{
-    position:absolute;
-    bottom:180px;
-    width:100%;
-    height:300px;
-    background:
-    polygon(0% 100%,20% 30%,40% 100%,60% 20%,80% 100%,100% 40%,100% 100%);
-}
-
-.mountains{
-    position:absolute;
-    bottom:180px;
-    width:100%;
-    height:300px;
-    background:#5c7c89;
-    clip-path:polygon(
-    0 100%,10% 50%,20% 100%,
-    35% 30%,50% 100%,
-    65% 20%,80% 100%,
-    100% 40%,100% 100%);
-}
-
-/* Road */
-.road{
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:180px;
-    background:#333;
-}
-
-.road::before{
-    content:"";
-    position:absolute;
-    top:50%;
-    left:0;
-    width:300%;
-    height:8px;
-    background:repeating-linear-gradient(
-        to right,
-        white 0,
-        white 60px,
-        transparent 60px,
-        transparent 120px
-    );
-    animation:roadMove 2s linear infinite;
-}
-
-@keyframes roadMove{
-    from{transform:translateX(0);}
-    to{transform:translateX(-120px);}
+background:transparent;
+border:1px solid white;
+color:white;
 }
 
 /* Car */
-.car-container{
-    position:absolute;
-    bottom:90px;
-    left:50%;
-    transform:translateX(-50%);
-    animation:carBounce 1s ease-in-out infinite alternate;
+
+.right{
+position:relative;
+width:700px;
+height:400px;
 }
 
-@keyframes carBounce{
-    from{transform:translateX(-50%) translateY(0);}
-    to{transform:translateX(-50%) translateY(-6px);}
+.glow{
+position:absolute;
+width:500px;
+height:500px;
+background:#00e5ff;
+filter:blur(150px);
+opacity:.15;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
 }
 
 .car{
-    position:relative;
-    width:420px;
-    height:120px;
+position:absolute;
+width:100%;
+bottom:50px;
+filter:
+drop-shadow(0 50px 60px rgba(0,229,255,.3));
 }
 
-/* Car Body */
-.body{
-    position:absolute;
-    width:100%;
-    height:80px;
-    bottom:20px;
-    background:#ff3c41;
-    border-radius:30px 60px 20px 20px;
-    box-shadow:0 15px 30px rgba(0,0,0,.3);
-}
-
-.top{
-    position:absolute;
-    width:180px;
-    height:60px;
-    background:#ff3c41;
-    left:90px;
-    top:0;
-    border-radius:30px 30px 0 0;
-}
-
-.window{
-    position:absolute;
-    width:70px;
-    height:40px;
-    background:#9ee8ff;
-    top:10px;
-    border-radius:10px;
-}
-
-.w1{left:20px;}
-.w2{right:20px;}
-
-.headlight{
-    position:absolute;
-    right:-5px;
-    top:35px;
-    width:20px;
-    height:12px;
-    background:yellow;
-    border-radius:10px;
-    box-shadow:0 0 20px yellow;
-}
-
-/* Wheels */
 .wheel{
-    position:absolute;
-    width:70px;
-    height:70px;
-    background:#222;
-    border:8px solid #666;
-    border-radius:50%;
-    bottom:-10px;
-    animation:spin .5s linear infinite;
+position:absolute;
+width:90px;
+height:90px;
+border-radius:50%;
+border:8px solid #444;
+background:#111;
+bottom:45px;
 }
 
 .wheel::after{
-    content:"";
-    position:absolute;
-    width:20px;
-    height:20px;
-    background:#aaa;
-    border-radius:50%;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+content:'';
+position:absolute;
+width:18px;
+height:18px;
+background:#888;
+border-radius:50%;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 }
 
 .front{
-    right:50px;
+right:135px;
 }
 
 .back{
-    left:50px;
+left:115px;
 }
 
-@keyframes spin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
+/* Road */
+
+.road{
+position:absolute;
+bottom:0;
+width:200%;
+height:8px;
+background:
+repeating-linear-gradient(
+90deg,
+white 0px,
+white 100px,
+transparent 100px,
+transparent 180px
+);
 }
 
-/* Floating particles */
-.particle{
-    position:absolute;
-    background:white;
-    border-radius:50%;
-    opacity:.8;
-    animation:float linear infinite;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(0);
-        opacity:1;
-    }
-    to{
-        transform:translateY(-100vh);
-        opacity:0;
-    }
-}
-
-@media(max-width:768px){
-
-.hero{
-    left:5%;
-}
-
-.hero h1{
-    font-size:42px;
-}
-
-.car{
-    transform:scale(.7);
-}
-
-nav ul{
-    display:none;
-}
-}
 </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">AUTO-X</div>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Models</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
+<div class="logo">AUTO X</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Cars</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
 </nav>
 
-<div class="hero">
-    <h1>Future Driving</h1>
-    <p>
-        Experience speed, luxury and innovation with our
-        next-generation sports cars.
-    </p>
+<section class="hero">
 
-    <button class="btn primary">Explore Cars</button>
-    <button class="btn secondary">Watch Video</button>
+<div class="left">
+
+<div class="subtitle">
+NEXT GENERATION
 </div>
 
-<div class="mountains"></div>
+<h1>
+DRIVE
+<span>THE FUTURE</span>
+</h1>
 
-<div class="car-container">
-    <div class="car">
+<p>
+Discover futuristic electric performance,
+cutting-edge technology and luxury engineering.
+</p>
 
-        <div class="top">
-            <div class="window w1"></div>
-            <div class="window w2"></div>
-        </div>
+<div class="buttons">
+<button class="btn primary">
+Explore
+</button>
 
-        <div class="body">
-            <div class="headlight"></div>
-        </div>
-
-        <div class="wheel back"></div>
-        <div class="wheel front"></div>
-
-    </div>
+<button class="btn secondary">
+Watch Video
+</button>
 </div>
+
+</div>
+
+<div class="right">
+
+<div class="glow"></div>
+
+<img
+class="car"
+src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200"
+>
+
+<div class="wheel back"></div>
+<div class="wheel front"></div>
+
+</div>
+
+</section>
 
 <div class="road"></div>
 
 <script>
-// Floating particles
-for(let i=0;i<40;i++){
 
-    const p=document.createElement("div");
-    p.classList.add("particle");
+// MASTER TIMELINE
 
-    const size=Math.random()*6+2;
+const tl = gsap.timeline();
 
-    p.style.width=size+"px";
-    p.style.height=size+"px";
-    p.style.left=Math.random()*100+"vw";
-    p.style.bottom="-20px";
+tl.from(".logo",{
+y:-100,
+opacity:0,
+duration:1
+})
 
-    p.style.animationDuration=
-        (Math.random()*8+5)+"s";
+.from("nav li",{
+y:-50,
+opacity:0,
+stagger:0.1,
+duration:.7
+},"-=0.5")
 
-    p.style.animationDelay=
-        Math.random()*5+"s";
+.from(".subtitle",{
+x:-100,
+opacity:0,
+duration:1
+})
 
-    document.body.appendChild(p);
-}
+.from("h1",{
+y:100,
+opacity:0,
+duration:1
+},"-=0.5")
+
+.from("p",{
+y:50,
+opacity:0,
+duration:1
+},"-=0.6")
+
+.from(".btn",{
+scale:0,
+opacity:0,
+stagger:0.2,
+duration:.8
+},"-=0.4")
+
+.from(".car",{
+x:1000,
+rotation:-10,
+duration:2,
+ease:"power4.out"
+},"-=1")
+
+.from(".wheel",{
+scale:0,
+duration:1
+},"-=1");
+
+// Wheels
+
+gsap.to(".wheel",{
+rotation:360,
+repeat:-1,
+ease:"none",
+duration:.6
+});
+
+// Road
+
+gsap.to(".road",{
+x:-400,
+repeat:-1,
+ease:"none",
+duration:2
+});
+
+// Floating car
+
+gsap.to(".car",{
+y:-15,
+repeat:-1,
+yoyo:true,
+duration:2,
+ease:"sine.inOut"
+});
+
+// Glow pulse
+
+gsap.to(".glow",{
+scale:1.2,
+opacity:.25,
+repeat:-1,
+yoyo:true,
+duration:2
+});
+
+// Mouse parallax
+
+document.addEventListener("mousemove",(e)=>{
+
+let x=(e.clientX/window.innerWidth-.5)*40;
+let y=(e.clientY/window.innerHeight-.5)*40;
+
+gsap.to(".car",{
+x:x,
+y:y,
+duration:1
+});
+
+gsap.to(".glow",{
+x:x*0.5,
+y:y*0.5,
+duration:1
+});
+
+});
+
 </script>
 
 </body>
