@@ -6,7 +6,7 @@ box-sizing:border-box;
 font-family:Inter,sans-serif;
 }
 body{
-overflow:100hv;
+overflow:100vh;
 height:100vh;
 background:
 radial-gradient(circle at center,
