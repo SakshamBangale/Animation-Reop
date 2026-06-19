@@ -7,8 +7,6 @@ A modern animated car showcase website built with **HTML, CSS, JavaScript, and G
 
 
 
-
-
 ## ✨ Features
 
 ### 🎬 GSAP Animations
