@@ -88,6 +88,7 @@ in your browser.
 
 Or use VS Code Live Server:
 
+
 ```bash
 Right Click → Open with Live Server
 ```
