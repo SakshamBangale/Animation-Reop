@@ -17,8 +17,7 @@ A modern animated car showcase website built with **HTML, CSS, JavaScript, and G
 - Floating car effect
 - Pulsing glow effects
 - Infinite wheel rotation
-- Animated road mov
-ement
+- Animated road movement
 
 ### 🌌 Interactive Effects
 - Mouse parallax movement
