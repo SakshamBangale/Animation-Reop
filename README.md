@@ -56,9 +56,7 @@ AUTO-X/
 └── assets/
     ├── images/
     └── icons/
-
 ```
-
 ---
 
 ## 🚀 Getting Started
