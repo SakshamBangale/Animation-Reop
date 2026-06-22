@@ -56,6 +56,7 @@ AUTO-X/
 └── assets/
     ├── images/
     └── icons/
+
 ```
 
 ---
