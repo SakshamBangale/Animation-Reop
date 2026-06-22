@@ -82,6 +82,7 @@ Simply open:
 index.html
 ```
 
+
 in your browser.
 
 Or use VS Code Live Server:
