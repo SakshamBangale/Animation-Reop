@@ -87,6 +87,7 @@ Right Click → Open with Live Server
 
 ---
 
+
 ## 📦 GSAP Installation
 
 ### CDN
