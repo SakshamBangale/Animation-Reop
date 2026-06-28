@@ -101,9 +101,7 @@ Right Click → Open with Live Server
 ```bash
 npm install gsap
 ```
-
 ---
-
 ## 🎨 Main Animations
 
 ### Hero Intro
