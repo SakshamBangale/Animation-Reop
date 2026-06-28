@@ -64,11 +64,9 @@ git clone https://github.com/SakshamBangale
 ```
 
 ### 2. Open Project
-
 ```bash
 cd auto-x
 ```
-
 ### 3. Run Website
 
 Simply open:
