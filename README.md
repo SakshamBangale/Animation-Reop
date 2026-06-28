@@ -169,9 +169,7 @@ The website automatically adapts to:
 - Video Background
 - Loading Screen Animation
 - Sound Effects
-
 ---
-
 ## 📸 Screenshots
 
 Add your screenshots inside:
